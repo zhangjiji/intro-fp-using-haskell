@@ -11,18 +11,19 @@ digitval :: Char -> Int
 digitval d = (ord d) - (ord '0')
 
 data Day = Mon | Tue | Wed | Thu | Fri | Sat | Sun
-         deriving (Eq, Ord, Enum)
+         deriving (Eq, Ord, Enum, Show)
 
 -- 2.3.1
 dayBefore :: Day -> Day
-dayBefore d = fromEnum (((toEnum d) + 6 ) `mod` 7)
+dayBefore d = toEnum (((fromEnum d) + 6 ) `mod` 7)
+
 
 data Direction = North | East | South | West
-               deriving (Eq, Ord, Enum)
+               deriving (Eq, Ord, Enum, Show)
 
 -- 2.3.2
 reverseDir :: Direction -> Direction
-reverseDir d = d;
+reverseDir d = toEnum (((fromEnum d) + 2) `mod` 4)
 
 {-
 instance Enum Bool where
