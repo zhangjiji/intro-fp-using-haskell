@@ -8,3 +8,6 @@ nextlet c
   | ordc >= ord 'A' = chr (ordc + 1)
   | otherwise = error "not character"
   where ordc = ord c
+
+digitval :: Char -> Int
+digitval d = (ord d) - (ord '0')
