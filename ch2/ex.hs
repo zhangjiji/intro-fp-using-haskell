@@ -32,3 +32,12 @@ instance Enum Bool where
   fromEnum 0 = False
   fromEnum 1 = True
 -}
+
+-- 2.4.2
+data Triple a b c = MkTriple a b c
+                  deriving (Show)
+
+birthYears :: (Int, Int, Int) -> (Int, Int, Int) -> Int
+birthYears (dNow,mNow,yNow) (dBirth, mBirth, yBirth) =
+  (yNow - yBirth)
+
