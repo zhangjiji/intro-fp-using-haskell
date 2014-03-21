@@ -1,4 +1,5 @@
 import Text.ParserCombinators.Parsec
+import CopyAllExtFiles
 
 csvFile = endBy line eol
 line = sepBy cell (char ',')
@@ -20,6 +21,21 @@ eol = try (string "\n\r")
 
 parseCSV :: String -> Either ParseError [[String]]
 parseCSV input = parse csvFile "(unknown)" input
+
+{-
+copyFile :: FilePath -> FilePath -> IO ()
+copyFile source target = do
+  contents <- readContents source
+  writeContents target contents
+
+readContents :: FilePath -> IO String
+readContents fn = bracket (openFile fn ReadMode) hClose
+              (\h -> hGetContents h)
+
+writeContents :: FilePath -> String -> IO ()
+writeContents fn contents = bracket (openFile fn WriteMode) hClose
+                        (\h -> hPutStrLn h contents)
+-}
 
 main = do
   c <- getContents
