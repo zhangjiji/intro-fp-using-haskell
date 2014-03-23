@@ -7,7 +7,7 @@ fork xt yt = Fork n xt yt
 
 lsize :: Atree a -> Int
 lsize (Leaf a) = 1
-lsize (Fork n xt yt) = 1 + lsize xt
+lsize (Fork n xt yt) = lsize xt + lsize yt
 
 mkAtree :: [a] -> Atree a
 mkAtree xs
