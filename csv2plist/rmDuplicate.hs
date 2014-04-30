@@ -22,5 +22,15 @@ writeContents fn contents = bracket (openFile fn WriteMode) hClose
                         (\h -> hPutStrLn h contents)
 
 main = do
-  contents <- readContents "test.txt"
-  putStrLn (rm contents)
+  hr <- openFile "test.txt" ReadMode
+  hSetEncoding hr utf8
+  hw <- openFile "test2.txt" WriteMode
+  hSetEncoding hw utf8
+
+  contents <- hGetContents hr
+  hPutStr hw (rm contents)
+
+  hClose hw
+  hClose hr
+--  contents <- readContents "test.txt"
+--  putStrLn (rm contents)

@@ -16,3 +16,6 @@ minus (Succ n) (Succ m)
 convert :: Nat -> Integer
 convert Zero = 0
 convert (Succ n) = 1 + convert n
+
+main :: IO ()
+main = print "main"
