@@ -21,6 +21,9 @@ tails :: [a] -> [[a]]
 tails [] = [[]]
 tails (x:xs) = (x:xs) : (tails xs)
 
+tails' = foldl (flip f) [[]]
+         where f x xss = [] : map (x:) xss
+
 filter' p = foldr f []
   where f x xs = if p x then x : xs else xs
 
