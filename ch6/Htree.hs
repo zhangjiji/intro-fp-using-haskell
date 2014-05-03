@@ -1,3 +1,5 @@
+module Htree where
+
 data Htree a = Null | Fork a (Htree a) (Htree a)
 
 flatten :: (Ord a) => Htree a -> [a]

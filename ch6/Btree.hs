@@ -1,3 +1,4 @@
+module Btree where
 
 data Btree a = Leaf a | Fork (Btree a) (Btree a)
              deriving (Show)

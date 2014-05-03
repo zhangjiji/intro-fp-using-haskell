@@ -1,3 +1,4 @@
+module Stree where
 
 data Stree a = Null | Fork (Stree a) a (Stree a)
              deriving (Show)
